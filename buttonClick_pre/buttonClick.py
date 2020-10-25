@@ -1,5 +1,7 @@
+import urllib
+import uuid
 
-
+import urllib3
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -49,7 +51,10 @@ class buttonclick:
         sec_but.click()
 
         bot.implicitly_wait(10)
+
+
         self.bot.find_element_by_xpath("//*[@id='dlslotipform']/div/div[1]/div/div[2]/div/div/div[2]/div/div[1]/div[1]/label").click()
+
 
         self.bot.find_element_by_xpath('//input[@id="applno"]').send_keys(self.application_number)
         bot.implicitly_wait(5)
@@ -57,6 +62,11 @@ class buttonclick:
         verification_code = str(input("Enter Captcha: "))
         self.bot.find_element_by_xpath('//input[@id="captcha"]').send_keys(verification_code)
         self.bot.find_element_by_xpath('//*[@id="dlslotipform_   SAVE   "]').click()
+
+
+    def getInputFromGUI(self):
+       print("create api")
+
 
     def letsclickNike(self):
         driver = webdriver.Chrome('chromedriver.exe')
