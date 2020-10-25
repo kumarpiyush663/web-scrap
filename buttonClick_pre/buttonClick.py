@@ -28,7 +28,7 @@ class buttonclick:
         print("\nStarting clicking process!\n")
         bot.get('https://sarathi.parivahan.gov.in/sarathiservice/stateSelection.do')
         bot.implicitly_wait(10)
-        # bot.maximize_window()
+        bot.maximize_window()
 
         # self.bot.find_element_by_xpath("//select[id='stfNameId']").click()
         # self.bot.
@@ -47,21 +47,24 @@ class buttonclick:
             (By.XPATH, '//*[@id="navbarNavDropdown"]/ul/li[5]')))  # hover over button
         ActionChains(bot).move_to_element(but_loc).perform()
         sec_but = WebDriverWait(bot, 10).until(
-            EC.visibility_of_element_located((By.XPATH, '//*[@id="navbarNavDropdown"]/ul/li[5]/ul/li[2]/a')))  # click on contact
+            EC.visibility_of_element_located((By.XPATH, '//*[@id="navbarNavDropdown"]/ul/li[5]/ul/li[1]/a')))  # click on contact
         sec_but.click()
 
         bot.implicitly_wait(10)
 
 
-        self.bot.find_element_by_xpath("//*[@id='dlslotipform']/div/div[1]/div/div[2]/div/div/div[2]/div/div[1]/div[1]/label").click()
+        self.bot.find_element_by_xpath("//*[@id='llslotipform_subtype1']").click()
 
 
-        self.bot.find_element_by_xpath('//input[@id="applno"]').send_keys(self.application_number)
+        self.bot.find_element_by_xpath('//input[@id="applno1"]').send_keys(self.application_number)
         bot.implicitly_wait(5)
         self.bot.find_element_by_xpath('//input[@id="dob"]').send_keys(self.dob)
         verification_code = str(input("Enter Captcha: "))
         self.bot.find_element_by_xpath('//input[@id="captcha"]').send_keys(verification_code)
-        self.bot.find_element_by_xpath('//*[@id="dlslotipform_   SAVE   "]').click()
+        self.bot.find_element_by_xpath('//*[@id="llslotipform_   SAVE   "]').click()
+
+
+        # self.bot.close()
 
 
     def getInputFromGUI(self):
